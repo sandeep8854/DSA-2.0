@@ -135,7 +135,33 @@ class LinkedList {
     //   console.log(element[i]);
     // }
   }
+  reverseLinked(data) {
+    let current = this.head;
+    let previous = null;
+    let forword = null;
+    while (current !== null) {
+      forword = current.next;
+      current.next = previous;
+      previous = current;
+      current = forword;
+    }
+    return previous;
+  }
 }
+/*
+ if(head==null||head.next==null){
+    return head;
+  }
+    let current = head;
+    let previous = null;
+    while (current !== null) {
+      const forword = current.next;
+      current.next = previous;
+       previous = current;
+      current = forword;
+    }
+    return previous; 
+*/
 //----------------------------------------------------------------
 // 10 - 20 - 30 -  40
 const linkedList = new LinkedList();
@@ -144,11 +170,13 @@ linkedList.append(20);
 linkedList.append(40);
 linkedList.append(50);
 // linkedList.insertAtThePosition(30, 5);
-linkedList.delete(1);
+//linkedList.delete(1);
 
 //linkedList.perpend(100);
 //linkedList.perpend(110);
 //linkedList.perpend(150);
+linkedList.printFun();
+linkedList.reverseLinked();
 linkedList.printFun();
 // linkedList.append(20);
 // linkedList.append(30);
